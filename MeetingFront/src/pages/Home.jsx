@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchAllUsers } from "../redux/slices/fetchSlice";
-import './home.css'
+import '../assets/styles/home.css';
 
 const Home = () => {
   const dispatch = useDispatch();

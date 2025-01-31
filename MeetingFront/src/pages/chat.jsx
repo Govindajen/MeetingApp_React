@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import "./message.css"
+import '../assets/styles/chat.css';
 
 export default function Chat() {
     const navigate = useNavigate();
     const [wsControlleur, setWSControlleur] = useState(null);
     const user = useSelector((state) => state.auth.user);
     const [onlineUsers, setOnlineUsers] = useState([]);
-
     const [selectedUser, setSelectedUser] = useState(null);
-
     const [newMessage, setNewMessage] = useState('')
     const [messages, setMessages] = useState([])
-
 
     useEffect(() => {
         const ws = new WebSocket("ws://localhost:3002");
@@ -34,7 +31,6 @@ export default function Chat() {
             };
         };
 
-        // Handle cleanup when the component unmounts or the user navigates away
         const closeWebSocket = () => {
             if (ws.readyState === WebSocket.OPEN) {
                 ws.send(JSON.stringify({ type: "close", userId: user.user.id }));
@@ -42,15 +38,13 @@ export default function Chat() {
             }
         };
 
-        window.addEventListener("beforeunload", closeWebSocket); // Close WS on browser refresh
+        window.addEventListener("beforeunload", closeWebSocket);
 
         return () => {
             closeWebSocket();
             window.removeEventListener("beforeunload", closeWebSocket);
         };
     }, [user.user.id]);
-
-
 
     const handleSendMessage = () => {
         wsControlleur.send(JSON.stringify({ type: "newMessage", userId: user.user.id, message: newMessage, with: selectedUser }));
@@ -77,8 +71,6 @@ export default function Chat() {
         {message.username === user.user.username && <p className="username">ME</p>}
       </div>
     ));
-  
-  
 
     return (
         <div className="chat-container">
@@ -92,9 +84,7 @@ export default function Chat() {
                         {onlineUsers.length > 0 ? (
                             <ul className="users-list-ul">
                                 {onlineUsers.map((onlineUser, index) => {
-
                                     if( onlineUser.username == user.user.username) return null;
-
                                     return (
                                     <li key={index} className="user-item" onClick={ () => {setSelectedUser(onlineUser)}} >
                                         {onlineUser.username}
