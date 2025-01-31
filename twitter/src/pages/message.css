@@ -1,0 +1,176 @@
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.chat-card {
+    width: 70%;
+    height: 80%;
+    background-color: #fff;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+h2 {
+    margin: 12px auto;
+}
+
+
+
+.back-btn {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: #1da1f2;
+    color: white;
+    padding: 16px;
+    font-size: 1.2m;
+    cursor: pointer;
+}
+
+.chat-body {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+}
+
+
+.users-list {
+    height: 100%;
+    width: 30%;
+}
+.users-list-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.user-item {
+    padding: 16px;
+    cursor: pointer;
+    padding-left: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-box {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+}
+.chat-messages {
+    height: 80%;
+    overflow-y: auto;
+    border-left: 1px solid lightgray;
+} 
+
+/* General Chat Message Styling */
+.message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Sender Message (Right-Aligned) */
+.my-message {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.my-message .message {
+    background-color: #ff5864; /* Tinder Red */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 14px;
+    margin-bottom: 0.5em;
+}
+
+/* Receiver Message (Left-Aligned) */
+.my-message2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.my-message2 .message {
+    margin-bottom: 0.5em;
+    background-color: #e1e1e1; /* Light Gray */
+    color: black;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 14px;
+}
+
+/* Username Styling */
+.username {
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Chat Input Container */
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Input Field */
+.chat-input {
+    flex: 1;
+    border: none;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 30px;
+    outline: none;
+    background: #f0f0f0;
+}
+
+/* Send Button */
+.send-btn {
+    background: #FF3E6C;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out, background 0.3s ease;
+}
+
+.send-btn:hover {
+    background: #FF6B81;
+    transform: scale(1.1);
+}
+
+.send-btn:disabled {
+    background: gray;
+    cursor: not-allowed;
+}

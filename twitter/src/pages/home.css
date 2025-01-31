@@ -1,0 +1,82 @@
+/* General Styling */
+.tinder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #FF6B81, #FF3E6C);
+    padding: 20px;
+}
+
+.tinder-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Tinder Card */
+.tinder-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.tinder-card:hover {
+    transform: scale(1.05);
+}
+
+.tinder-username {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.tinder-info {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.tinder-loading {
+    font-size: 1.2rem;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Tinder Buttons */
+.tinder-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tinder-btn {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tinder-btn:hover {
+    transform: scale(1.1);
+}
+
+.dislike {
+    background: #333;
+}
+
+.like {
+    background: #FF6B81;
+}
