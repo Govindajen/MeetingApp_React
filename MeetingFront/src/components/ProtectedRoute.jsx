@@ -1,17 +1,10 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const ProtectedRoute = ({ element }) => {
-    const user = useSelector((state) => state.auth.user);
-    const token = localStorage.getItem("token");
+const ProtectedRoute = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
-    // If user is undefined, remove the token from localStorage
-    if (!user) {
-        localStorage.removeItem("token");
-    }
-
-    return user ? element : <Navigate to="/login" />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default ProtectedRoute;
