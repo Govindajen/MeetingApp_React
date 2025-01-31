@@ -29,7 +29,7 @@ export default function Chat() {
                 }
 
                 if (body.type == 'newMessage') {
-                    setMessages((prevMessages) => [...prevMessages, { message: body.message, username: body.username }]);
+                    setMessages((prevMessages) => [...prevMessages, { message: body.message, username: body.username, with: body.with }]);
                 }
             };
         };
@@ -53,23 +53,31 @@ export default function Chat() {
 
 
     const handleSendMessage = () => {
-        wsControlleur.send(JSON.stringify({ type: "newMessage", userId: user.user.id, message: newMessage }));
+        wsControlleur.send(JSON.stringify({ type: "newMessage", userId: user.user.id, message: newMessage, with: selectedUser }));
         setNewMessage('');
+        console.log(messages)
     }
 
     const myMessage = messages
-    .filter((message) => selectedUser && (message.username === selectedUser.username || message.username === user.user.username))
+    .filter(
+      (message) =>
+        selectedUser &&
+        ((message.username === user.user.username && message.with.id === selectedUser.id) ||
+        (message.username === selectedUser.username && message.with.id === user.user.id))
+    )
     .map((message, index) => (
-      <div key={message.username + index} className={message.username === user.user.username ? "my-message" : "my-message2"}>
+      <div
+        key={message.username + index}
+        className={message.username === user.user.username ? "my-message" : "my-message2"}
+      >
         {message.username !== user.user.username && (
           <p className="username">{message.username[0].toUpperCase()}</p>
         )}
         <span className="message">{message.message}</span>
-        {message.username === user.user.username && (
-          <p className="username">ME</p>
-        )}
+        {message.username === user.user.username && <p className="username">ME</p>}
       </div>
     ));
+  
   
 
     return (

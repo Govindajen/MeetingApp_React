@@ -42,7 +42,7 @@ ws.on('connection', function connection(ws) {
 			case 'newMessage':
 				usersConnected.forEach(connectedUser => {
 					if (body.userId === connectedUser.id) {
-						broadcast({ type: 'newMessage', message: body.message, username: connectedUser.username });
+						broadcast({ type: 'newMessage', message: body.message, username: connectedUser.username, with: body.with });
 					}
 				});
 				break;
